@@ -19,7 +19,9 @@ namespace ORM_Dapper
             IDbConnection conn = new MySqlConnection(connString);
 
 
-            //added the following code to make sure it worked.  
+            //This shows all the departments.
+            Console.WriteLine($"------------List of Departments------------");
+            Console.WriteLine();
             var departmentRepo = new DapperDepartmentRepository(conn);
 
             var departments = departmentRepo.GetAllDepartments();
@@ -29,7 +31,11 @@ namespace ORM_Dapper
                 Console.WriteLine($"{department.DepartmentID} {department.Name}");
             }
 
-            //Implement our new methods (from DapperProductRepository) in the Main method of Program.cs
+            Console.WriteLine();
+            Console.WriteLine($"------------List of Products-----------");
+            Console.WriteLine();
+
+            //Implement our new methods (from DapperProductRepository) 
             var productRepo = new DapperProductRepository(conn);
 
             //productRepo.CreateProduct("Dell Laptop", 800.00, 1);

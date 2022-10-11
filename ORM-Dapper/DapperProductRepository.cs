@@ -32,13 +32,14 @@ namespace ORM_Dapper
 
         public void UpdateProduct(string name, double price, int categoryID, int productID)
         {
-            _conn.Execute("UPDATE products SET Name = @name, Price = @price, CategoryID = @categoryID WHERE ProductID = @productID;",
+            _conn.Execute("UPDATE products SET Name = @name, Price = @price, CategoryID = @categoryID " +
+                "WHERE ProductID = @productID;",
                new {name = name, price = price, categoryID = categoryID, productID = productID});
         }
 
         public void DeleteProduct(int productID)
         {
-            _conn.Execute ( "DELETE FROM products WHERE ProductID = @ProductID",
+            _conn.Execute ("DELETE FROM products WHERE ProductID = @ProductID",
                 new {productID = productID});
         }
 
